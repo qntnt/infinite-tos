@@ -1,6 +1,5 @@
 <script lang="ts">
   import Controls from "./lib/Controls.svelte";
-  import CopyrightClause from "./lib/CopyrightClause.html?raw";
   import Terms from "./lib/Terms.html?raw";
   import MyImmortal from "./lib/MyImmortal.html?raw";
   import DontPretend from "./lib/DontPretend.html?raw";
@@ -53,9 +52,11 @@
         />
         {nsfwEnabled ? "NSFW" : "SFW"}
       </small>
-      <hr />
-      {#each pages as page}
-        <br />
+      {#each pages as page, pageNum}
+        <hr />
+        <div class="abstract">
+          <p>Page {pageNum + 1}</p>
+        </div>
         {@html page.text}
       {/each}
     </div>

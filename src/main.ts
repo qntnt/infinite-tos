@@ -1,4 +1,4 @@
-import './css/latex.min.css'
+import 'latex.css'
 import './app.css'
 import App from './App.svelte'
 
