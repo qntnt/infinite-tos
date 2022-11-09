@@ -12,9 +12,6 @@
 </div>
 
 <style>
-    .controls {
-        padding: 1em;
-    }
     .warning {
         --color: var(--del-color);
     }

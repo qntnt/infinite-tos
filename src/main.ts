@@ -1,5 +1,5 @@
+import './css/latex.min.css'
 import './app.css'
-import '@picocss/pico'
 import App from './App.svelte'
 
 const app = new App({

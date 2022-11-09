@@ -38,8 +38,11 @@
 </script>
 
 <main>
-  <div class="terms">
+  <div class="terms-container">
     <h1>Terms and Conditions</h1>
+    <p class="author">
+      SYZYGY Corporation <br /> Last updated: September 14, 2022
+    </p>
     <small>
       <input
         type="checkbox"
@@ -48,7 +51,6 @@
       />
       {nsfwEnabled ? "NSFW" : "SFW"}
     </small>
-    <p>Last updated: September 14, 2022</p>
     <p>
       Please read these terms and conditions carefully before using Our Service.
     </p>
@@ -58,7 +60,7 @@
     {/each}
     <InfiniteScroll threshold={100} on:loadMore={() => pageNum++} />
   </div>
-  <div class="controls">
+  <div class="controls-container">
     <Controls page={pageNum + 1} />
   </div>
 </main>
@@ -66,16 +68,18 @@
 <style>
   main {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
   }
-  .terms {
-    padding: 1em;
-    height: 70%;
+  .terms-container {
+    flex-grow: 1;
     overflow-y: scroll;
+    padding: 1em;
   }
-  .controls {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  .controls-container {
+    flex-shrink: 1;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1em;
   }
 </style>
