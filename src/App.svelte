@@ -35,30 +35,35 @@
   };
 
   $: pages = [...pages, getNextPage(pageNum)];
+  let termsContainer: HTMLElement;
 </script>
 
 <main>
-  <div class="terms-container">
-    <h1>Terms and Conditions</h1>
-    <p class="author">
-      SYZYGY Corporation <br /> Last updated: September 14, 2022
-    </p>
-    <small>
-      <input
-        type="checkbox"
-        checked={nsfwEnabled}
-        on:change={() => (nsfwEnabled = !nsfwEnabled)}
-      />
-      {nsfwEnabled ? "NSFW" : "SFW"}
-    </small>
-    <p>
-      Please read these terms and conditions carefully before using Our Service.
-    </p>
-    {#each pages as page}
-      <br />
-      {@html page.text}
-    {/each}
-    <InfiniteScroll threshold={100} on:loadMore={() => pageNum++} />
+  <div class="container" bind:this={termsContainer}>
+    <div class="terms-container">
+      <h1>Terms and Conditions</h1>
+      <p class="author">
+        SYZYGY CORPORATION <br /> Last updated: November 8, 2022
+      </p>
+      <small>
+        <input
+          type="checkbox"
+          checked={nsfwEnabled}
+          on:change={() => (nsfwEnabled = !nsfwEnabled)}
+        />
+        {nsfwEnabled ? "NSFW" : "SFW"}
+      </small>
+      <hr />
+      {#each pages as page}
+        <br />
+        {@html page.text}
+      {/each}
+    </div>
+    <InfiniteScroll
+      elementScroll={termsContainer}
+      threshold={100}
+      on:loadMore={() => pageNum++}
+    />
   </div>
   <div class="controls-container">
     <Controls page={pageNum + 1} />
@@ -68,18 +73,36 @@
 <style>
   main {
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     margin: 0;
+    --line-color: rgba(0, 0, 0, 0.3);
+  }
+  hr {
+    color: var(--line-color);
+    width: 100%;
+    border: 0px double var(--line-color);
+    border-top-width: 3px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .terms-container {
+    /* max-width: 50em; */
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-wrap: break-word;
+    /* overflow-y: scroll; */
     padding: 1em;
+    display: flex;
+    flex-direction: column;
   }
   .controls-container {
     flex-shrink: 1;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--line-color);
     padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

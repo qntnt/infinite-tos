@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+rm -rf dist
+
 # abort on errors
 set -e
 
@@ -20,6 +22,7 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 
+echo 'Pushing dist'
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 

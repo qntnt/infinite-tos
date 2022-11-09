@@ -1,4 +1,23 @@
 body {
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 100%;
+    --del-color: rgb(150, 0, 0);
+}
+
+.container {
+    overflow-y: scroll;
+}
+
+@media (min-width: 52rem) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container>* {
+        width: 50rem;
+    }
 }
