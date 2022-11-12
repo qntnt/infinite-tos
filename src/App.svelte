@@ -75,6 +75,7 @@
   main {
     height: 100vh;
     width: 100vw;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -89,10 +90,8 @@
     margin-bottom: 1rem;
   }
   .terms-container {
-    /* max-width: 50em; */
     flex-grow: 1;
     overflow-wrap: break-word;
-    /* overflow-y: scroll; */
     padding: 1em;
     display: flex;
     flex-direction: column;
