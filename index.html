@@ -9,7 +9,14 @@
 </head>
 
 <body class="libertinus">
+  <div id="javascript-required">
+    <p>Javascript is required to review this document.</p>
+  </div>
   <div id="app"></div>
+  <script>
+    const el = document.getElementById('javascript-required')
+    el.remove()
+  </script>
   <script type="module" src="/src/main.ts"></script>
 </body>
 
